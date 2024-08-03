@@ -4,6 +4,8 @@ import com.api_viaje.crud.Enums.Ciudad;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -33,6 +35,12 @@ public class Conductor {
 
     @Column(name = "foto")  // Asegurar coincidencia con la base de datos
     private String foto;
+
+    @OneToMany(mappedBy = "conductor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<ViajeDetalle> viajeDetalles;
+
+    @OneToMany(mappedBy = "conductor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Auto> autos;
 }
 
 

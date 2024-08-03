@@ -1,6 +1,7 @@
 package com.api_viaje.crud.Models;
 
 import com.api_viaje.crud.Enums.Ciudad;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,10 +30,12 @@ public class ViajeDetalle {
 
     @ManyToOne
     @JoinColumn(name = "id_auto")
+    @JsonIgnore
     private Auto auto;
 
     @ManyToOne
     @JoinColumn(name = "id_conductor")
+    @JsonIgnore
     private Conductor conductor;
 
     /* @OneToMany(mappedBy = "viaje_detalle")

@@ -1,5 +1,6 @@
 package com.api_viaje.crud.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,6 +15,7 @@ public class Auto {
 
     @ManyToOne
     @JoinColumn(name = "id_conductor")
+    @JsonIgnore
     private Conductor conductor;
 
     @ManyToOne
