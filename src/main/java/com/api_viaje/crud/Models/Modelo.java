@@ -1,5 +1,6 @@
 package com.api_viaje.crud.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -16,6 +17,7 @@ public class Modelo {
 
     @ManyToOne
     @JoinColumn(name = "id_marca")
+    @JsonIgnore
     private Marca marca;
 }
 
