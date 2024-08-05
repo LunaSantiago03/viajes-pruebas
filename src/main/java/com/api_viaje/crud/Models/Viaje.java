@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,6 +22,5 @@ public class Viaje {
 
     @ManyToOne
     @JoinColumn(name = "id_pasajero")
-    @JsonIgnore
     private Pasajero pasajero;
 }

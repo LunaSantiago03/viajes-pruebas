@@ -1,6 +1,7 @@
 package com.api_viaje.crud.Models;
 
 import com.api_viaje.crud.Enums.Ciudad;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,29 +15,30 @@ import java.util.List;
 public class Conductor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_conductor")  // Asegurar coincidencia con la base de datos
+    @Column(name = "id_conductor")
     private int id_conductor;
 
-    @Column(name = "nombre")  // Asegurar coincidencia con la base de datos
+    @Column(name = "nombre")
     private String nombre;
 
-    @Column(name = "apellido")  // Asegurar coincidencia con la base de datos
+    @Column(name = "apellido")
     private String apellido;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "ciudad")  // Asegurar coincidencia con la base de datos
+    @Column(name = "ciudad")
     private Ciudad ciudad;
 
-    @Column(name = "telefono")  // Asegurar coincidencia con la base de datos
+    @Column(name = "telefono")
     private String telefono;
 
-    @Column(name = "puntuacion")  // Asegurar coincidencia con la base de datos
+    @Column(name = "puntuacion")
     private float puntuacion;
 
-    @Column(name = "foto")  // Asegurar coincidencia con la base de datos
+    @Column(name = "foto")
     private String foto;
 
     @OneToMany(mappedBy = "conductor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<ViajeDetalle> viajeDetalles;
 
     @OneToMany(mappedBy = "conductor", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
