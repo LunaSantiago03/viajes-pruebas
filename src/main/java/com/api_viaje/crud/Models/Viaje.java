@@ -1,5 +1,6 @@
 package com.api_viaje.crud.Models;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
@@ -18,9 +19,11 @@ public class Viaje {
 
     @ManyToOne
     @JoinColumn(name = "id_viaje_detalle")
+    @JsonIgnore
     private ViajeDetalle viaje_detalle;
 
     @ManyToOne
     @JoinColumn(name = "id_pasajero")
+    @JsonBackReference
     private Pasajero pasajero;
 }

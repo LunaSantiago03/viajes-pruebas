@@ -34,9 +34,11 @@ public class ViajeDetalle {
 
     @ManyToOne
     @JoinColumn(name = "id_conductor")
+    @JsonIgnore
     private Conductor conductor;
 
     @OneToMany(mappedBy = "viaje_detalle", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Viaje> viajes;
 
 }

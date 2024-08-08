@@ -2,6 +2,7 @@ package com.api_viaje.crud.Models;
 
 import com.api_viaje.crud.Enums.Ciudad;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,6 +28,7 @@ public class Pasajero {
     private String foto;
 
     @OneToMany(mappedBy = "pasajero", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    //@JsonManagedReference
     private List<Viaje> viajes;
 }
 
